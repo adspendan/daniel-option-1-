@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Scale on Command — Performance Ads + Private AI Operators | AdSpend Agency × OperatorHQ</title>
+  <meta name="description" content="For business owners, brands, and creators. Done‑for‑you performance advertising plus private, on‑prem AI Operators. Streetwear, e‑commerce, local services, medical/legal and more." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { neon: '#C1FF72', dark: '#0F1115', soft: '#14171C' },
+          boxShadow: { glow: '0 0 0 3px rgba(193,255,114,0.20)' },
+          fontFamily: {
+            display: ['Space Grotesk','Inter','ui-sans-serif','system-ui','sans-serif'],
+            sans: ['Inter','ui-sans-serif','system-ui','sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: Inter, ui-sans-serif, system-ui, sans-serif; }
+    .bg-field{
+      background:
+        radial-gradient(900px 420px at 50% -10%, rgba(193,255,114,0.10), transparent 60%),
+        radial-gradient(700px 360px at -10% 110%, rgba(193,255,114,0.06), transparent 60%),
+        radial-gradient(700px 360px at 110% 110%, rgba(193,255,114,0.06), transparent 60%),
+        #0F1115;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-field text-white antialiased">
+  <!-- Sticky top CTA -->
+  <header class="fixed inset-x-0 top-0 z-50 backdrop-blur bg-black/20 border-b border-white/10">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="/images/adspend-logo.png" alt="AdSpend Agency" class="h-6 w-auto hidden sm:block"/>
+        <span class="hidden sm:inline text-white/30">×</span>
+        <img src="/images/operatorhq-logo.png" alt="OperatorHQ AI" class="h-6 w-auto hidden sm:block"/>
+      </div>
+      <a href="#cta" class="inline-flex items-center gap-2 rounded-lg border border-neon/70 bg-neon text-black font-semibold px-3 py-1.5 text-sm hover:shadow-glow">Get My Growth Plan</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="pt-28 sm:pt-32 pb-12 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <p class="text-xs tracking-[0.18em] text-white/60 uppercase">For Business Owners, Brands & Creators</p>
+      <h1 class="font-display font-extrabold tracking-tight leading-tight mt-2 text-4xl sm:text-5xl md:text-6xl">Scale on Command — <span class="whitespace-nowrap">Performance Ads</span> + <span class="whitespace-nowrap">Private AI Operators</span></h1>
+      <p class="mt-5 text-base sm:text-lg text-white/75 max-w-2xl mx-auto">We run the growth engine while you run the business. AdSpend Agency drives revenue with direct‑response advertising; OperatorHQ installs a private, on‑prem AI Operator that thinks with your data.</p>
+      <div class="mt-7 flex flex-col sm:flex-row items-center justify-center gap-3">
+        <a href="#persona" class="inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-5 py-3">Show Me How</a>
+        <a href="#cta" class="inline-flex items-center justify-center gap-2 rounded-xl border border-neon/70 bg-neon text-black font-semibold px-6 py-3">Get My Growth Plan</a>
+      </div>
+      <p class="mt-4 text-xs text-white/50">Streetwear • Creators/Influencers • Shopify • Local services • Medical/Legal</p>
+    </div>
+  </section>
+
+  <!-- PERSONA SELECTOR -->
+  <section id="persona" class="px-4 py-10">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid lg:grid-cols-2 gap-6">
+        <div class="rounded-2xl border border-white/10 bg-soft/60 backdrop-blur p-6">
+          <h2 class="font-display font-bold text-2xl">Your World, Your Pain Points</h2>
+          <p class="text-white/70 mt-1">Pick the one that sounds like you. We’ll show the problems we fix and how fast we move.</p>
+
+          <div class="mt-5 flex flex-wrap gap-2">
+            <button class="persona px-3 py-2 rounded-xl bg-white/5 border border-white/10 text-sm" data-k="streetwear">Streetwear / Creator Brand</button>
+            <button class="persona px-3 py-2 rounded-xl bg-white/5 border border-white/10 text-sm" data-k="ecom">Shopify / E‑commerce</button>
+            <button class="persona px-3 py-2 rounded-xl bg-white/5 border border-white/10 text-sm" data-k="services">Local Services</button>
+            <button class="persona px-3 py-2 rounded-xl bg-white/5 border border-white/10 text-sm" data-k="medical">Medical / Legal</button>
+          </div>
+
+          <div class="mt-6 grid sm:grid-cols-2 gap-4">
+            <div class="rounded-xl border border-white/10 bg-black/20 p-4">
+              <h3 class="font-display font-semibold mb-2">What’s breaking</h3>
+              <ul id="pains" class="list-disc list-inside text-white/80 text-sm space-y-1"></ul>
+            </div>
+            <div class="rounded-xl border border-white/10 bg-black/20 p-4">
+              <h3 class="font-display font-semibold mb-2">What we do</h3>
+              <ul id="wins" class="list-disc list-inside text-white/80 text-sm space-y-1"></ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Results / Proof cards -->
+        <div class="rounded-2xl border border-white/10 bg-soft/60 backdrop-blur p-6">
+          <h2 class="font-display font-bold text-2xl">What happens when we plug in</h2>
+          <div class="mt-5 grid grid-cols-2 sm:grid-cols-3 gap-4">
+            <div class="rounded-xl border border-white/10 bg-black/20 p-4 text-center">
+              <div class="text-2xl font-bold text-neon">4–15×</div>
+              <div class="text-xs text-white/60">Typical ROAS range*</div>
+            </div>
+            <div class="rounded-xl border border-white/10 bg-black/20 p-4 text-center">
+              <div class="text-2xl font-bold text-neon">-41%</div>
+              <div class="text-xs text-white/60">Avg CPA reduction</div>
+            </div>
+            <div class="rounded-xl border border-white/10 bg-black/20 p-4 text-center">
+              <div class="text-2xl font-bold text-neon">+3.9</div>
+              <div class="text-xs text-white/60">ROAS in 48h test</div>
+            </div>
+            <div class="rounded-xl border border-white/10 bg-black/20 p-4 text-center">
+              <div class="text-2xl font-bold text-neon">70%</div>
+              <div class="text-xs text-white/60">Ops automated</div>
+            </div>
+            <div class="rounded-xl border border-white/10 bg-black/20 p-4 text-center">
+              <div class="text-2xl font-bold text-neon">24/7</div>
+              <div class="text-xs text-white/60">AI monitoring</div>
+            </div>
+            <div class="rounded-xl border border-white/10 bg-black/20 p-4 text-center">
+              <div class="text-2xl font-bold text-neon">Minutes</div>
+              <div class="text-xs text-white/60">to spot winners</div>
+            </div>
+          </div>
+          <p class="text-xs text-white/50 mt-3">*Results vary. We stack fundamentals + AI to compress time-to-impact.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPERATORHQ: PACKAGES -->
+  <section id="operator" class="px-4 py-12">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-8">
+        <h2 class="font-display font-extrabold text-3xl sm:text-4xl tracking-tight">OperatorHQ AI — Two Ways In</h2>
+        <p class="text-white/70 mt-2">Own your data. Run local. Start simple or go fully custom.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- FOUNDATION -->
+        <div class="rounded-2xl border border-white/10 bg-soft/60 p-6">
+          <div class="flex items-center justify-between">
+            <h3 class="font-display font-bold text-2xl">Foundation</h3>
+            <span class="text-xs text-white/60">Fastest start</span>
+          </div>
+          <ul class="mt-4 text-sm text-white/80 space-y-2 list-disc list-inside">
+            <li>Marketplace access to ready‑made Operators (reporting, audits, alerts)</li>
+            <li>Runs locally or on your private cloud</li>
+            <li>Connect Meta, Google, TikTok, Shopify, Stripe</li>
+            <li>Daily performance summary in Slack/Email</li>
+          </ul>
+          <a href="#cta" class="mt-5 inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/5 px-4 py-2">Start with Foundation</a>
+        </div>
+        <!-- CUSTOM HQ -->
+        <div class="rounded-2xl border border-neon/40 bg-black/30 p-6">
+          <div class="flex items-center justify-between">
+            <h3 class="font-display font-bold text-2xl">Custom HQ</h3>
+            <span class="text-xs text-neon/90">White‑glove</span>
+          </div>
+          <ul class="mt-4 text-sm text-white/90 space-y-2 list-disc list-inside">
+            <li>Fully custom Operator built around your workflows</li>
+            <li>Advanced routing: LLM + rules + scripts that act</li>
+            <li>Voice interface, scheduled automations, approvals</li>
+            <li>Hands‑on install, training, and SLA</li>
+          </ul>
+          <a href="#cta" class="mt-5 inline-flex items-center justify-center rounded-xl border border-neon/70 bg-neon text-black font-semibold px-4 py-2">Build My HQ</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROI ESTIMATOR -->
+  <section class="px-4 py-12">
+    <div class="max-w-4xl mx-auto rounded-2xl border border-white/10 bg-soft/60 p-6">
+      <h2 class="font-display font-bold text-2xl">What could this do for you?</h2>
+      <p class="text-white/70 text-sm mt-1">Quick estimator (not a promise): set your monthly ad spend, target ROAS, and COGS to see a ballpark.</p>
+
+      <div class="mt-4 grid sm:grid-cols-3 gap-4">
+        <label class="block text-sm">Monthly Ad Spend ($)
+          <input id="spend" type="number" min="500" step="100" value="5000" class="mt-1 w-full rounded-lg bg-black/30 border border-white/10 px-3 py-2"/>
+        </label>
+        <label class="block text-sm">Target ROAS (×)
+          <input id="roas" type="range" min="2" max="15" value="5" class="mt-3 w-full"/>
+          <span id="roasVal" class="text-xs text-white/60"></span>
+        </label>
+        <label class="block text-sm">COGS / Service Cost (%)
+          <input id="cogs" type="range" min="10" max="80" value="40" class="mt-3 w-full"/>
+          <span id="cogsVal" class="text-xs text-white/60"></span>
+        </label>
+      </div>
+
+      <div class="mt-6 grid sm:grid-cols-3 gap-4">
+        <div class="rounded-xl border border-white/10 bg-black/20 p-4 text-center">
+          <div class="text-xs text-white/60">Projected Revenue</div>
+          <div id="rev" class="text-2xl font-bold text-neon">$—</div>
+        </div>
+        <div class="rounded-xl border border-white/10 bg-black/20 p-4 text-center">
+          <div class="text-xs text-white/60">Estimated Cost of Goods</div>
+          <div id="cost" class="text-2xl font-bold text-neon">$—</div>
+        </div>
+        <div class="rounded-xl border border-white/10 bg-black/20 p-4 text-center">
+          <div class="text-xs text-white/60">Estimated Gross Profit</div>
+          <div id="profit" class="text-2xl font-bold text-neon">$—</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="px-4 py-12">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-center font-display font-extrabold text-3xl sm:text-4xl tracking-tight">How We Work (Fast)</h2>
+      <div class="mt-8 grid md:grid-cols-5 gap-4">
+        <div class="rounded-xl border border-white/10 bg-soft/60 p-4"><div class="text-neon font-bold">1. Map</div><p class="text-sm text-white/70 mt-1">Audit, goals, offers, creative gaps.</p></div>
+        <div class="rounded-xl border border-white/10 bg-soft/60 p-4"><div class="text-neon font-bold">2. Install</div><p class="text-sm text-white/70 mt-1">Tracking, dashboards, Operator hooks.</p></div>
+        <div class="rounded-xl border border-white/10 bg-soft/60 p-4"><div class="text-neon font-bold">3. Launch</div><p class="text-sm text-white/70 mt-1">Offers, creatives, targeting—day 1 momentum.</p></div>
+        <div class="rounded-xl border border-white/10 bg-soft/60 p-4"><div class="text-neon font-bold">4. Optimize</div><p class="text-sm text-white/70 mt-1">AI alerts + human judgment, budgets adjust hourly.</p></div>
+        <div class="rounded-xl border border-white/10 bg-soft/60 p-4"><div class="text-neon font-bold">5. Scale</div><p class="text-sm text-white/70 mt-1">Duplicate winners, new markets, new angles.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ / PROOF -->
+  <section class="px-4 py-12">
+    <div class="max-w-4xl mx-auto">
+      <div class="rounded-2xl border border-white/10 bg-soft/60 p-6">
+        <h2 class="font-display font-bold text-2xl">FAQ</h2>
+        <details class="mt-4 border-t border-white/10 py-3">
+          <summary class="cursor-pointer font-semibold">How fast can we start?</summary>
+          <p class="text-white/70 mt-2 text-sm">Discovery call → audit → install. We typically launch initial ads in 5–10 business days depending on creative readiness.</p>
+        </details>
+        <details class="border-t border-white/10 py-3">
+          <summary class="cursor-pointer font-semibold">What platforms do you run?</summary>
+          <p class="text-white/70 mt-2 text-sm">Meta (FB/IG), TikTok, YouTube/Google, plus email/SMS where it lifts ROAS. OperatorHQ integrates across platforms.</p>
+        </details>
+        <details class="border-t border-white/10 py-3">
+          <summary class="cursor-pointer font-semibold">Is the AI actually private?</summary>
+          <p class="text-white/70 mt-2 text-sm">Yes. Foundation runs locally or in your private cloud. Custom HQ is installed on your hardware or VPC. Your data stays yours.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section id="cta" class="px-4 pb-20">
+    <div class="max-w-3xl mx-auto text-center rounded-2xl border border-neon/40 bg-black/30 p-8">
+      <h2 class="font-display font-extrabold text-3xl tracking-tight">Ready to scale?</h2>
+      <p class="text-white/70 mt-2 max-w-2xl mx-auto">Get a custom growth plan. We’ll map offers, traffic, and the Operator you need—then we run it with you.</p>
+      <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
+        <a href="https://hi.danielmanka.com/apply" class="inline-flex items-center justify-center gap-2 rounded-xl border border-neon/70 bg-neon text-black font-semibold px-6 py-3">Book a Call</a>
+        <a href="https://operatorhq.ai/demo" class="inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-6 py-3">See Operator Demo</a>
+      </div>
+      <p class="text-xs text-white/50 mt-4">Or email <a href="mailto:dan@llmdan.online" class="underline">dan@llmdan.online</a></p>
+    </div>
+  </section>
+
+  <footer class="px-4 pb-10">
+    <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-4 text-xs text-white/50">
+      <div class="flex items-center gap-3">
+        <img src="/images/adspend-logo.png" alt="AdSpend Agency" class="h-5 w-auto"/>
+        <span>×</span>
+        <img src="/images/operatorhq-logo.png" alt="OperatorHQ AI" class="h-5 w-auto"/>
+      </div>
+      <div>© <span id="year"></span> Daniel Manka. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    // Persona data
+    const DATA = {
+      streetwear: {
+        pains: [
+          'Creative fatigue kills momentum',
+          'Inconsistent ad results week to week',
+          'Can’t find new audiences that actually buy',
+          'Drops launch strong, then stall'
+        ],
+        wins: [
+          'UGC + creator angles that don’t burn out',
+          'Offer ladder: evergreen + drops working together',
+          'AI spotting early winners and killing waste',
+          'Scaling rules built into budget automation'
+        ]
+      },
+      ecom: {
+        pains: [
+          'Rising CPAs and shrinking margins',
+          'No system for creative testing',
+          'Attribution chaos across channels',
+          'Slow reaction to trends'
+        ],
+        wins: [
+          'Structured testing → scale framework',
+          'Channel mix tuned for MER/NCAs',
+          'OperatorHQ daily report + actions',
+          'Predictive alerts before fatigue hits'
+        ]
+      },
+      services: {
+        pains: [
+          'Lead quality all over the place',
+          'Calls booked but no‑shows',
+          'No follow‑up system',
+          'Seasonality swings revenue'
+        ],
+        wins: [
+          'Lead filters + qualifying ads',
+          'Auto‑confirm + reschedule flows',
+          'CRM + SMS nurtures handled by Operator',
+          'Local targeting that actually converts'
+        ]
+      },
+      medical: {
+        pains: [
+          'Compliance worries with ads',
+          'Staff can’t keep up with inquiries',
+          'Expensive referrals, inconsistent pipeline',
+          'No clear source‑of‑truth reporting'
+        ],
+        wins: [
+          'Compliant ad angles + tracking',
+          'Operator triages and routes inquiries',
+          'Booked‑appointment optimization',
+          'Executive dashboard with weekly actions'
+        ]
+      }
+    };
+
+    const painsEl = document.getElementById('pains');
+    const winsEl  = document.getElementById('wins');
+    const personaBtns = document.querySelectorAll('.persona');
+
+    function renderList(el, items){
+      el.innerHTML = items.map(i=>`<li>${i}</li>`).join('');
+    }
+
+    function setPersona(key){
+      const d = DATA[key] || DATA.ecom;
+      renderList(painsEl, d.pains);
+      renderList(winsEl,  d.wins);
+      personaBtns.forEach(b=>{
+        const active = b.dataset.k === key;
+        b.classList.toggle('border-neon/60', active);
+        b.classList.toggle('bg-white/10', active);
+      });
+    }
+
+    personaBtns.forEach(b=> b.addEventListener('click', ()=> setPersona(b.dataset.k)));
+    setPersona('ecom'); // default
+
+    // ROI calculator
+    const spend = document.getElementById('spend');
+    const roas  = document.getElementById('roas');
+    const cogs  = document.getElementById('cogs');
+    const roasVal = document.getElementById('roasVal');
+    const cogsVal = document.getElementById('cogsVal');
+    const rev   = document.getElementById('rev');
+    const cost  = document.getElementById('cost');
+    const profit= document.getElementById('profit');
+
+    function fmt(n){return n.toLocaleString(undefined,{maximumFractionDigits:0});}
+
+    function calc(){
+      const s = Number(spend.value||0);
+      const r = Number(roas.value||0);
+      const g = Number(cogs.value||0)/100;
+      const revenue = s * r;
+      const cogsAmt = revenue * g;
+      const prof    = revenue - cogsAmt - s; // subtract ad spend as cost
+      rev.textContent    = `$${fmt(revenue)}`;
+      cost.textContent   = `$${fmt(cogsAmt)}`;
+      profit.textContent = `$${fmt(prof)}`;
+      roasVal.textContent = `${r}×`;
+      cogsVal.textContent = `${cogs.value}%`;
+    }
+
+    [spend, roas, cogs].forEach(i=> i.addEventListener('input', calc));
+    calc();
+
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
